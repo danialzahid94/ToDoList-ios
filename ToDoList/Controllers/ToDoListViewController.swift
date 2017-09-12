@@ -39,7 +39,23 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
         
         title = "Tasks"
         
-        tasks = realm.objects(Task.self)
+//        tasks = realm.objects(Task.self)
+        
+        if let tabBarIndex = self.tabBarController?.selectedIndex {
+            switch tabBarIndex {
+            case 0:
+                title = "Pending Tasks"
+                tasks = self.realm.objects(Task.self).filter("completed == 0")
+                self.tableView.reloadData()
+            case 1:
+                title = "Completed Tasks"
+                tasks = self.realm.objects(Task.self).filter("completed == 1")
+                self.tableView.reloadData()
+                self.navigationItem.rightBarButtonItem = nil
+            default: break
+                
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,12 +72,13 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBAction func sortButtonPressed(_ sender: Any) {
         UIAlertController.showActionSheet(in: self, withTitle: "Sort", message: "Select the paramater to sort by", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["By Priority","By Date"], popoverPresentationControllerBlock: nil) { (alertController, action, buttonIndex) in
+            guard let tabBarIndex = self.tabBarController?.selectedIndex else { return }
             if action.title == "By Priority" {
-                self.tasks = self.realm.objects(Task.self).sorted(byKeyPath: "priority")
+                self.tasks = self.realm.objects(Task.self).filter("completed == \(tabBarIndex)").sorted(byKeyPath: "priority")
                 self.tableView.reloadData()
             }
             else if action.title == "By Date" {
-                self.tasks = self.realm.objects(Task.self).sorted(byKeyPath: "createdAt")
+                self.tasks = self.realm.objects(Task.self).filter("completed == \(tabBarIndex)").sorted(byKeyPath: "createdAt")
                 self.tableView.reloadData()
             }
         }

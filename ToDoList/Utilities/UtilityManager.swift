@@ -2,8 +2,8 @@
 //  extrasClass.swift
 //  MyDocChat
 //
-//  Created by Vikas Baru on 29/05/15.
-//  Copyright (c) 2015 VikasBaru. All rights reserved.
+//  Created by Danial Zahid on 29/05/15.
+//  Copyright (c) 2015 DanialZahid. All rights reserved.
 //
 
 import UIKit
