@@ -138,7 +138,8 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count > 0 {
-            tasks = realm.objects(Task.self).filter("title contains '\(searchText)'")
+            guard let tabBarIndex = self.tabBarController?.selectedIndex else { return }
+            tasks = realm.objects(Task.self).filter("completed == \(tabBarIndex)").filter("title contains '\(searchText)'")
             tableView.reloadData()
         }
         else{

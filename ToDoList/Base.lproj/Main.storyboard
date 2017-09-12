@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -77,12 +77,16 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXO-3h-FKy">
                                                     <rect key="frame" x="8" y="0.0" width="48" height="87"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="Afq-Gk-D7k"/>
+                                                    </constraints>
                                                     <state key="normal" image="uncheckedBox"/>
                                                     <state key="selected" image="checkedBox"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TXO-3h-FKy" firstAttribute="leading" secondItem="jrG-sn-Jdg" secondAttribute="leadingMargin" id="038-wL-1Qr"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4fm-BC-KyM" secondAttribute="trailing" id="ABJ-nc-1PD"/>
                                                 <constraint firstItem="TXO-3h-FKy" firstAttribute="trailing" secondItem="4fm-BC-KyM" secondAttribute="leading" constant="-5" id="CRI-GK-KYx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="F0d-mX-20E" secondAttribute="bottom" constant="0.5" id="E8m-Q2-08W"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="F0d-mX-20E" secondAttribute="trailing" constant="5" id="G6X-W0-7v0"/>
@@ -327,7 +331,7 @@ No save buttons needed :)</string>
                 <navigationController id="Vuc-V2-mgJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Done" image="done" id="Jg7-jr-ESV"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="4ws-Tq-Hdb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4ws-Tq-Hdb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -346,7 +350,7 @@ No save buttons needed :)</string>
                     <tabBarItem key="tabBarItem" title="Pending" image="pending" id="zD7-e7-aWy"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="KlK-ug-qfH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KlK-ug-qfH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -362,7 +366,7 @@ No save buttons needed :)</string>
     </scenes>
     <resources>
         <image name="checkedBox" width="48" height="48"/>
-        <image name="done" width="50" height="50"/>
+        <image name="done" width="30" height="30"/>
         <image name="pending" width="30" height="30"/>
         <image name="sortIcon" width="30" height="30"/>
         <image name="uncheckedBox" width="48" height="48"/>
